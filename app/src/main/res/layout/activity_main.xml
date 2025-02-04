@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            android:background="@drawable/background_biru"
+            android:layout_gravity="bottom"
+            android:gravity="bottom|center">
+
+
+        </LinearLayout>
+
+
+<!--        ini untuk header logo-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:orientation="horizontal"
+            android:background="@drawable/background_login"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="left"
+                android:gravity="center">
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:text="ABSENSI"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    />
+
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo1"
+                    />
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:text="SMK MARAQITALIMAT\nKALIJAGA TIMUR"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+<!--        ini widget CardView yang di dalam nya ada
+form ID dan Password untuk user login-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="5dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="#FFFFFF"
+
+                >
+
+
+
+                <TextView
+                    android:id="@+id/namasales"
+                    android:text="null"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/merah"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/update"
+                    android:text="null"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/merah"
+                    android:visibility="gone"/>
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:textSize="13dp"
+                    android:focusable="true"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:hint="ID"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:background="@drawable/background"/>
+
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
+                    android:textSize="13dp"
+                    android:layout_margin="10dp"
+                    android:hint="PASSWORD"
+                    android:padding="8dp"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:background="@drawable/background"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lupa Password Silahkan Hub Admin"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
+
+
+
+
+
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+<!--        ini untuk Button login dengan gravity align center-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="40dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/lingkaran_biru"
+                android:visibility="gone"/>
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="40dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/lingkaran_biru"
+                android:visibility="gone"/>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="right"
+                android:id="@+id/Button"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@drawable/kiri_kanan_round"
+                >
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LOGIN"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"/>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+<!--        dan ini adalah footer yang berupa gambar-->
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="bottom"
+    android:gravity="bottom|right">
+
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="-1dp"
+        android:src="@drawable/people_sekolah"
+        />
+
+</LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <!-- Tambahkan elemen lain seperti form login di sini -->
+
+</androidx.appcompat.widget.LinearLayoutCompat>

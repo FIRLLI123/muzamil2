@@ -1,0 +1,23 @@
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Atur warna latar belakang utama aplikasi -->
+    <item name="android:background">@android:color/background_light</item>
+    <!-- Atur warna teks utama -->
+    <item name="android:textColor">@android:color/black</item>
+    <!-- Dan atur warna elemen lainnya sesuai kebutuhan -->
+    <!-- ... -->
+</style>
+
+
+
+
+
+    <style name="CardViewStyle" parent="CardView">
+        <!-- Atur warna latar belakang CardView sesuai kebutuhan -->
+        <item name="cardBackgroundColor">#E4E4E4</item>
+        <!-- Dan atur atribut lainnya jika diperlukan -->
+        <!-- ... -->
+    </style>
+
+</resources>

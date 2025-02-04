@@ -1,0 +1,1363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#18CDC3"
+    tools:context=".MainActivity">
+
+
+
+<!--Header pada dashboard-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:background="@drawable/navy_bottom_round">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="bottom"
+            android:gravity="bottom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="top"
+                android:gravity="top"
+                >
+
+<!--                icon foto-->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgbarang"
+                    android:layout_width="80dp"
+                    android:layout_height="77dp"
+                    android:src="@drawable/user2"
+                    android:layout_gravity="bottom"
+                    app:civ_border_color="#DFBBC4"
+                    app:civ_border_width="2dp"
+                    android:paddingBottom="7dp"
+                    android:paddingTop="0dp"
+                    android:layout_marginLeft="1dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/imgbarang"
+                    android:layout_width="80dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/userabsen2"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="10dp"
+                    android:layout_marginLeft="1dp"
+                    android:visibility="gone"
+                    />
+
+<!--data parsing yang di terima dari login user-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="left"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Selamat datang"
+                        android:textSize="15dp"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="1dp"
+                        android:textColor="@color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/nama"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="1dp"
+                            android:textColor="@color/merahmudah2"/>
+
+                        <TextView
+                            android:id="@+id/nis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="1dp"
+                            android:textColor="@color/merahmudah2"
+                            android:visibility="visible"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="1dp"
+                        android:textColor="@color/black"
+                        android:visibility="gone"/>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/profesi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="1dp"
+        android:textColor="@color/black"/>
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/black"/>
+
+
+    <TextView
+        android:id="@+id/id_siswa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Id_siswa"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="1dp"
+        android:textColor="@color/black"
+        android:visibility="gone"/>
+
+
+
+    <TextView
+        android:id="@+id/nama_siswa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama_siswa"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="1dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/mata_pelajaran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama_siswa"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="1dp"
+        android:textColor="@color/black"/>
+
+</LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CLUSTER DEPOK /TAP JUANDA / "
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ABSENSI / "
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:layout_marginLeft="1dp"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/bulan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BULAN"
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:layout_marginLeft="1dp"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/tanggaldari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tanggaldari"
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:layout_marginLeft="1dp"
+                    android:textColor="@color/white"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tanggalsampai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tanggalsampai"
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:layout_marginLeft="1dp"
+                    android:textColor="@color/white"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/dasboardtop">
+
+
+<!--        Class menu, kehadiran, izin, data, logout-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/abubuletkopong">
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="left"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="15dp">
+
+
+                <LinearLayout
+                    android:id="@+id/kehadiran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/dasboardcircle"
+                        >
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/menuabsen"
+                            android:layout_gravity="center"
+                            />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="KEHADIRAN"
+                        android:textSize="10dp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"/>
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/izin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp">
+
+
+                    <LinearLayout
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/dasboardcircle"
+                        >
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/cuti"
+                            android:layout_gravity="center"
+                            />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="IZIN"
+                        android:textSize="10dp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"/>
+
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp"
+                    android:visibility="gone">
+
+
+                    <LinearLayout
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/dasboardcircle"
+                        >
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/lembur"
+                            android:layout_gravity="center"
+                            />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="LEMBUR"
+                        android:textColor="@color/black"
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"/>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/data_absen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp">
+
+
+                    <LinearLayout
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/dasboardcircle"
+                        >
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/cuti2"
+                            android:layout_gravity="center"
+                            />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="Data Absen"
+                        android:textColor="@color/black"
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"/>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp">
+
+
+                    <LinearLayout
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/dasboardcircle"
+                        >
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/logout"
+                            android:layout_gravity="center"
+                            />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="Logout"
+                        android:textColor="@color/black"
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"/>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/opvoucher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp"
+                    android:visibility="gone">
+
+
+                    <LinearLayout
+
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/dasboardcircle"
+                        >
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/actperdana"
+                            android:layout_gravity="center"
+                            />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="Aktivasi Voucher Outlet"
+                        android:textSize="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"/>
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="#FFFFFF"
+            android:visibility="gone">
+
+
+            <ListView
+                android:id="@+id/listtest"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="410dp"
+                android:layout_gravity="bottom">
+
+<!--dashboard dan hitungan summary per user-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DASHBOARD KEHADIRAN"
+                            android:gravity="center"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:textSize="15dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="20dp"/>
+
+
+                        <TextView
+                            android:id="@+id/selengkapnya"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Selengkapnya...."
+                            android:gravity="right"
+                            android:layout_gravity="right"
+                            android:layout_marginLeft="15dp"
+                            android:textSize="11dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/merah"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginRight="15dp"/>
+
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="59dp"
+                            android:src="@drawable/linedasboard2"
+                            android:layout_marginLeft="35dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="KEHADIRAN LENGKAP"
+                                android:gravity="center"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="4dp"
+                                android:textSize="13dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/black"
+                                android:layout_marginBottom="3dp"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/date3"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/hadir"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="KELAS"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+                                <TextView
+                                    android:id="@+id/hadir"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"
+                                    android:text="Dari"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+
+                                <TextView
+                                    android:id="@+id/hadir"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="KELAS"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+
+
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="23dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="59dp"
+                            android:src="@drawable/linedasboard2"
+                            android:layout_marginLeft="35dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MASUK"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="4dp"
+                                android:textSize="13dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/black"
+                                android:layout_marginBottom="3dp"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/date2"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/masuk"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="KELAS"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+
+
+
+
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="23dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="59dp"
+                            android:src="@drawable/linedasboard2"
+                            android:layout_marginLeft="35dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TELAT"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="4dp"
+                                android:textSize="13dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/black"
+                                android:layout_marginBottom="3dp"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/date2"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/telat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="KELAS"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+
+
+
+
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="23dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="59dp"
+                            android:src="@drawable/linedasboard2"
+                            android:layout_marginLeft="35dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="LEMBUR"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="4dp"
+                                android:textSize="13dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/black"
+                                android:layout_marginBottom="3dp"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/date3"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tanggalkunjungan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="HARI"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+
+
+
+
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="23dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="59dp"
+                            android:src="@drawable/linedasboard2"
+                            android:layout_marginLeft="35dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="IZIN"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="4dp"
+                                android:textSize="13dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/black"
+                                android:layout_marginBottom="3dp"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/date4"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/izinn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="KELAS"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="23dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="59dp"
+                            android:src="@drawable/linedasboard2"
+                            android:layout_marginLeft="35dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="STATUS ABSEN"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="4dp"
+                                android:textSize="13dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/black"
+                                android:layout_marginBottom="3dp"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/ceklist"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+
+
+                                <TextView
+                                    android:id="@+id/approve"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Approve"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/pending"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+
+
+                                <TextView
+                                    android:id="@+id/pending"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pending"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/silang"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tolak"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    android:gravity="bottom"
+                                    android:text="Ditolak"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="23dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="59dp"
+                            android:src="@drawable/linedasboard2"
+                            android:layout_marginLeft="35dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TIDAK HADIR"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="4dp"
+                                android:textSize="13dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/black"
+                                android:layout_marginBottom="3dp"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/date1"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tidakmasuk"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/merahtua"
+                                    android:textStyle="bold"
+                                    android:text="0"
+                                    android:textSize="19dp"
+                                    android:gravity="bottom"
+                                    android:layout_gravity="bottom"/>
+
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="KELAS"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="bottom"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="bottom"
+                                    android:textColor="@color/black"/>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:background="#18CDC3"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/logo1"
+                        android:layout_gravity="center"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+

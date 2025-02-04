@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Latar belakang biru -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#18cdc3" />  <!-- Warna biru, sesuaikan jika perlu -->
+        </shape>
+    </item>
+
+    <!-- Bentuk putih di bagian bawah -->
+    <item android:top="500dp">  <!-- Sesuaikan nilai top agar sesuai dengan ukuran layar -->
+        <shape android:shape="rectangle">
+            <solid android:color="#18cdc3" />
+        </shape>
+    </item>
+</layer-list>

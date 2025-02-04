@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Latar belakang biru -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />  <!-- Warna biru, sesuaikan jika perlu -->
+        </shape>
+    </item>
+
+    <!-- Bentuk putih di bagian bawah dengan lengkungan S -->
+    <item>
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="360dp"
+            android:height="640dp"
+            android:viewportWidth="360"
+            android:viewportHeight="640">
+            <path
+                android:fillColor="#18CDC3"
+                android:pathData="M0,0 L360,0 L360,480 Q180,560 0,480 Z" />
+        </vector>
+    </item>
+</layer-list>

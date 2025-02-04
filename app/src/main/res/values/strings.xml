@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">muzamil</string>
+    <string name="notification_channel_id">your_channel_id</string>
+</resources>

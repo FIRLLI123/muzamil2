@@ -1,0 +1,18 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Opsional, hanya jika beberapa dependensi menggunakan ini
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.4" // Sesuaikan dengan versi plugin Gradle Anda
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Opsional
+    }
+}

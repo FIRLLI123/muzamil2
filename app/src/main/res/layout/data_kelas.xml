@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Data_kelas"
+    android:orientation="vertical"
+    android:background="#F3F3F3">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="1dp"
+        android:visibility="gone">
+
+
+
+        <TextView
+            android:id="@+id/idkelas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nis"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/nis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nis"/>
+
+        <TextView
+            android:id="@+id/profesi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="profesi"/>
+
+
+
+        <TextView
+            android:id="@+id/nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"/>
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/jam_mulai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"/>
+
+
+
+        <TextView
+            android:id="@+id/jam_telat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/jam_berakhir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/jam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"/>
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/bidang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text=" Silahkan pilih Kelas"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+
+<!--    Data Kelas pencarian berdasarkan nama dengan addText Change Listener-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:id="@+id/klik_dari"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:background="@drawable/bulat_transparan_putih"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Kelas :"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/jadwal"
+                    android:textSize="15dp"
+                    android:ems="10"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:imeOptions="actionSend"
+                    android:background="@drawable/backgroundkotakhitam"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginLeft="9dp">
+
+            <LinearLayout
+                android:id="@+id/caridatabarang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:background="@drawable/bulat_transparan_putih"
+
+                >
+
+                <ImageView
+
+                    android:layout_marginRight="1dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_width="22dp"
+                    android:layout_height="21dp"
+                    android:background="@drawable/search"/>
+
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/kuliner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:padding="4dp"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/keseluruhan_k"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="KESELURUHAN"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/abutua"
+                android:background="@drawable/custom10"/>
+
+
+
+            <TextView
+                android:id="@+id/makanan"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="MAKANAN"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/custom10"/>
+
+
+
+            <TextView
+                android:id="@+id/minuman"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="MINUMAN"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/custom10"/>
+
+
+            <TextView
+                android:id="@+id/cemilan"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="CEMILAN"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/custom10"/>
+
+
+            <TextView
+                android:id="@+id/lainnya_k"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="LAINNYA"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/custom10"/>
+
+
+
+
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <LinearLayout
+            android:id="@+id/outlet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:padding="4dp">
+
+
+            <TextView
+                android:id="@+id/keseluruhan"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="KESELURUHAN"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/abutua"
+                android:background="@drawable/custom10"/>
+
+
+
+            <TextView
+                android:id="@+id/perdana"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="PERDANA"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/custom10"/>
+
+
+
+            <TextView
+                android:id="@+id/voucher"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="VOUCHER"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/custom10"/>
+
+
+            <TextView
+                android:id="@+id/aksesoris"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="AKSESORIS"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/custom10"/>
+
+
+            <TextView
+                android:id="@+id/lainnya"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="LAINNYA"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/custom10"/>
+
+
+
+
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/blank_gambar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="19dp"
+            android:text="Upss !"/>
+
+        <ImageView
+            android:id="@+id/blank"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/notfound"
+            />
+
+
+        <TextView
+            android:visibility="visible"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="19dp"
+            android:textColor="#8C8C8C"
+            android:text="................................"/>
+
+    </LinearLayout>
+
+
+<!--    Data View kelas-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+
+        <ListView
+            android:id="@+id/listdataoutlet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
