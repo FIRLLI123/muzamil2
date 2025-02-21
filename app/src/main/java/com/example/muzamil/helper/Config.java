@@ -4,7 +4,7 @@ public class Config {
 
     //public static String host = "154.41.240.6/reka/";
     //public static String host = "https://webandroidfirlli.000webhostapp.com/reka2/";
-    public static String host = "https://rekamitrayasa.com/muzamil/";
+    public static String host = "http://trial-site.my.id/muzamil/";
     //public static String host = "https://www.rekamitrayasa.com/reka/";
 
 

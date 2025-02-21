@@ -7,6 +7,7 @@ import android.content.Intent;
 import androidx.core.widget.TextViewCompat;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.muzamil.helper.HttpsTrustManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -99,28 +101,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loginn() {
-        //Dapatkan nilai dari edittext
         final String username = e1.getText().toString().trim();
         final String password = e2.getText().toString().trim();
         pDialog.setMessage("Login Process...");
         showDialog();
 
-        //   Buat String Request
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppVar.LOGIN_URL,
+        // Memanggil allowAllSSL untuk mengizinkan semua koneksi SSL
+        HttpsTrustManager.allowAllSSL();
+
+        // Membuat request menggunakan Volley
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppVar._LOGIN_SUCCESS_,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
-                        //If we are getting success from server
                         if (response.contains(AppVar.LOGIN_SUCCESS)) {
                             hideDialog();
                             saveCredentials(username, password);
                             gotoCourseActivity();
-
-
                         } else {
                             hideDialog();
-                            //Displaying an error message on toast
                             Toast.makeText(context, "Invalid username or password", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -128,27 +127,27 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //You can handle error here if you want
                         hideDialog();
+                        Log.e("LoginError", "Error: " + error.toString());
+                        if (error.networkResponse != null) {
+                            Log.e("LoginError", "HTTP Status Code: " + error.networkResponse.statusCode);
+                        }
                         Toast.makeText(context, "The server unreachable", Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), "Pesan", Toast.LENGTH_LONG).show();
-
+                        Toast.makeText(getApplicationContext(), "Pesan: " + error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                //Adding parameters to request
-                params.put(AppVar.KEY_EMAIL, username);
-                params.put(AppVar.KEY_PASSWORD, password);
-                //returning parameter
+                // Pastikan kunci sesuai
+                params.put(AppVar._KEY_EMAIL_, username);
+                params.put(AppVar._KEY_PASSWORD_, password);
                 return params;
             }
         };
 
-        //Adding the string request to the queue
+        // Menambahkan request ke antrian
         Volley.newRequestQueue(this).add(stringRequest);
-
     }
 
     //parsing

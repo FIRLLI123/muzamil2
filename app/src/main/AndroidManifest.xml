@@ -14,6 +14,9 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera2" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
     <application
         android:name=".AppController"
@@ -24,7 +27,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Muzamil"
-        tools:ignore="MissingClass">
+        tools:ignore="MissingClass"
+        android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".Grade_siswa"
             android:exported="false"
