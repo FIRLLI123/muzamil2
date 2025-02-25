@@ -50,7 +50,7 @@ import java.security.cert.CertificateException;
 
 public class Data_kelas extends AppCompatActivity {
 
-    TextView idkelas, nis, profesi, nama, jadwal, jam_mulai, jam_telat, jam_berakhir, tanggal, jam;
+    TextView idkelas, nis, profesi, nama, jadwal, jam_mulai, jam_telat, jam_berakhir, tanggal, jam, mata_pelajaran;
 
 
     Button kunjungi;
@@ -64,7 +64,7 @@ public class Data_kelas extends AppCompatActivity {
 
     ListView listdataoutlet1;
 
-    public static String idlist, nislist, namagurulist, jadwallist, jam_mulailist, jam_telatlist, jam_berakhirlist, tanggallist;
+    public static String idlist, nislist, namagurulist, jadwallist, jam_mulailist, jam_telatlist, jam_berakhirlist, tanggallist, mata_pelajaranlist;
     ArrayList<HashMap<String, String>> aruskas = new ArrayList<HashMap<String, String>>();
 
 
@@ -93,6 +93,7 @@ public class Data_kelas extends AppCompatActivity {
         jam_telatlist = "";
         jam_berakhirlist = "";
         tanggallist = "";
+        mata_pelajaranlist = "";
 
         // Inisialisasi tampilan layout
         blank_gambar = (LinearLayout) findViewById(R.id.blank_gambar);
@@ -108,6 +109,7 @@ public class Data_kelas extends AppCompatActivity {
         jam_berakhir = (TextView) findViewById(R.id.jam_berakhir);
         tanggal = (TextView) findViewById(R.id.tanggal);
         jam = (TextView) findViewById(R.id.jam);
+        mata_pelajaran = (TextView) findViewById(R.id.mata_pelajaran);
 
         // Inisialisasi ListView untuk menampilkan data outlet
         listdataoutlet1 = (ListView) findViewById(R.id.listdataoutlet);
@@ -222,6 +224,7 @@ public class Data_kelas extends AppCompatActivity {
                                 map.put("jam_mulai", responses.optString("jam_mulai"));
                                 map.put("jam_telat", responses.optString("jam_telat"));
                                 map.put("jam_berakhir", responses.optString("jam_berakhir"));
+                                map.put("pelajaran", responses.optString("pelajaran"));
                                 aruskas.add(map);
                             }
                         }
@@ -318,8 +321,8 @@ public class Data_kelas extends AppCompatActivity {
 
             // Membuat SimpleAdapter untuk menampilkan data ke dalam ListView
             SimpleAdapter simpleAdapter = new SimpleAdapter(this, aruskas, R.layout.list_kelas,
-                    new String[] {"id","jadwal","jam_mulai","jam_telat","jam_berakhir"},
-                    new int[] {R.id.idlistt,R.id.jadwallist,R.id.jammulailist,R.id.jamtelatlist, R.id.jamberakhirlist});
+                    new String[] {"id","jadwal","jam_mulai","jam_telat","jam_berakhir","pelajaran"},
+                    new int[] {R.id.idlistt,R.id.jadwallist,R.id.jammulailist,R.id.jamtelatlist, R.id.jamberakhirlist, R.id.mata_pelajaranlist});
 
             listdataoutlet1.setAdapter(simpleAdapter); // Menetapkan adapter ke ListView
 
@@ -333,6 +336,7 @@ public class Data_kelas extends AppCompatActivity {
                     jam_mulailist = ((TextView) view.findViewById(R.id.jammulailist)).getText().toString();
                     jam_telatlist = ((TextView) view.findViewById(R.id.jamtelatlist)).getText().toString();
                     jam_berakhirlist = ((TextView) view.findViewById(R.id.jamberakhirlist)).getText().toString();
+                    mata_pelajaranlist = ((TextView) view.findViewById(R.id.mata_pelajaranlist)).getText().toString();
 
                     // Menetapkan nilai yang dipilih ke dalam TextView
                     idkelas.setText(idlist);
@@ -340,6 +344,7 @@ public class Data_kelas extends AppCompatActivity {
                     jam_mulai.setText(String.valueOf(jam_mulailist));
                     jam_telat.setText(jam_telatlist);
                     jam_berakhir.setText(jam_berakhirlist);
+                    mata_pelajaran.setText(mata_pelajaranlist);
 
                     // Mengambil data lain untuk dikirimkan ke Absensi Activity
                     String b = nama.getText().toString();
@@ -349,6 +354,7 @@ public class Data_kelas extends AppCompatActivity {
                     String f = jam_mulai.getText().toString();
                     String g = jam_telat.getText().toString();
                     String h = jam_berakhir.getText().toString();
+                    String j = mata_pelajaran.getText().toString();
 
                     // Membuat intent untuk berpindah ke Absensi Activity dan mengirim data
                     Intent i = new Intent(getApplicationContext(), Absensi.class);
@@ -359,6 +365,7 @@ public class Data_kelas extends AppCompatActivity {
                     i.putExtra("jam_mulai", f);
                     i.putExtra("jam_telat", g);
                     i.putExtra("jam_berakhir", h);
+                    i.putExtra("mata_pelajaran", j);
                     startActivity(i); // Menjalankan activity Absensi
                 }
             });

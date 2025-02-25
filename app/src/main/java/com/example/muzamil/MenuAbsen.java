@@ -261,27 +261,24 @@ LinearLayout kehadiran, izin, data_absen, logout;
 
         selengkapnya.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                if (profesi.getText().toString().equals("ORTU")) {
+                if (profesi.getText().toString().equals("BK") || profesi.getText().toString().equals("ORTU")) {
                     String a = id_siswa.getText().toString();
                     String b = nama_siswa.getText().toString();
 
-                    // Berpindah ke Data_absen
-                    Intent i = new Intent(getApplicationContext(), Grade_siswa.class);
+                    Intent i = new Intent(getApplicationContext(), Data_sales.class);
                     i.putExtra("id_siswa", "" + a + "");
                     i.putExtra("nama_siswa", "" + b + "");
 
                     startActivity(i);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 } else if (profesi.getText().toString().equals("BK")) {
-                    String a = nis.getText().toString();
-                    String b = nama.getText().toString();
-                    String c = profesi.getText().toString();
+                    String a = id_siswa.getText().toString();
+                    String b = nama_siswa.getText().toString();
 
                     // Berpindah ke Data_absen
-                    Intent i = new Intent(getApplicationContext(), Grade_siswa.class);
-                    i.putExtra("nis", "" + a + "");
-                    i.putExtra("nama", "" + b + "");
-                    i.putExtra("profesi", "" + c + "");
+                    Intent i = new Intent(getApplicationContext(), Data_sales.class);
+                    i.putExtra("id_siswa", "" + a + "");
+                    i.putExtra("nama_siswa", "" + b + "");
                 } else if (profesi.getText().toString().equals("null")) {
                     // Tampilkan pesan jika koneksi lemah
                     Toast.makeText(getApplicationContext(), "KONEKSI LEMAH TUNGGU SEBENTAR", Toast.LENGTH_LONG).show();

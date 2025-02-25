@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="daftar_kelas">
+        <item>KELAS X</item>
+        <item>KELAS XI</item>
+        <item>KELAS XII</item>
+    </string-array>
+</resources>

@@ -77,7 +77,7 @@ import java.security.cert.CertificateException;
 import java.util.function.Consumer;
 
 public class Absensi extends AppCompatActivity implements View.OnClickListener {
-TextView nis, nama, profesi, jam, tanggal, kelas, id_siswa, nama_siswa, keterangan;
+TextView nis, nama, profesi, jam, tanggal, kelas, id_siswa, nama_siswa, keterangan, mata_pelajaran;
 
 TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
 
@@ -134,6 +134,7 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
         id_siswa = (TextView) findViewById(R.id.id_siswa);
         nama_siswa = (TextView) findViewById(R.id.nama_siswa);
         keterangan = (TextView) findViewById(R.id.keterangan);
+        mata_pelajaran = (TextView) findViewById(R.id.mata_pelajaran);
         jam_bayangan = (TextView) findViewById(R.id.jam_bayangan);
 
         // Inisialisasi elemen jam kerja
@@ -168,6 +169,8 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
         jam_telat.setText(kiriman6); // Menampilkan jam telat
         String kiriman7 = i.getStringExtra("jam_berakhir");
         jam_berakhir.setText(kiriman7); // Menampilkan jam berakhir
+        String kiriman8 = i.getStringExtra("mata_pelajaran");
+        mata_pelajaran.setText(kiriman8); // Menampilkan jam berakhir
 
         // Menambahkan fungsi drag ke tombol draggableButton
         draggableButton.setOnTouchListener(new View.OnTouchListener() {
@@ -445,6 +448,7 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
                 .add("id_siswa", id_siswa.getText().toString())
                 .add("nama_siswa", nama_siswa.getText().toString())
                 .add("keterangan", keterangan.getText().toString())
+                .add("mata_pelajaran", mata_pelajaran.getText().toString())
                 .build();
 
         executePostRequest(Config.host + "inputabsen.php", formBody, response -> {

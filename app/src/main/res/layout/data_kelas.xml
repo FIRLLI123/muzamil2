@@ -114,6 +114,16 @@
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"/>
 
+        <TextView
+            android:id="@+id/mata_pelajaran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"/>
+
 
 
 
