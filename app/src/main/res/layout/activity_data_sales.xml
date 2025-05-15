@@ -399,7 +399,8 @@
                 android:textSize="16dp"
                 android:layout_gravity="left"
                 android:layout_marginLeft="1dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

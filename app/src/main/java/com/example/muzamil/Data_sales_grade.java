@@ -78,6 +78,8 @@ public class Data_sales_grade extends AppCompatActivity {
         id_siswa.setText(kiriman);
         String kiriman2 = i.getStringExtra("nama");
         nama_siswa.setText(kiriman2);
+        String kiriman3 = i.getStringExtra("kelas");
+        kelas_siswa.setText(kiriman3);
 
         cari.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -99,7 +101,8 @@ public class Data_sales_grade extends AppCompatActivity {
 
         // Membuat body permintaan POST
         RequestBody body = new FormBody.Builder()
-                .add("kelas", spinner_kelas.getSelectedItem().toString())
+                .add("kelas", kelas_siswa.getText().toString())
+                .add("id_siswa", id_siswa.getText().toString())
                 .build();
 
         // Membuat permintaan POST

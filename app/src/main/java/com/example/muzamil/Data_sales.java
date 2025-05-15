@@ -82,6 +82,23 @@ public class Data_sales extends AppCompatActivity {
             }
         });
 
+
+        spinner_kelas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Ambil nilai yang dipilih
+                String selectedKelas = parent.getItemAtPosition(position).toString();
+
+                // Set nilai ke TextView
+                kelas_siswa.setText(selectedKelas);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Tidak melakukan apa-apa jika tidak ada yang dipilih
+            }
+        });
+
         list();
     }
 
@@ -174,11 +191,13 @@ public class Data_sales extends AppCompatActivity {
                     // Mengambil data lain untuk dikirimkan ke Absensi Activity
                     String b = id_siswa.getText().toString();
                     String c = nama_siswa.getText().toString();
+                    String d = kelas_siswa.getText().toString();
 
                     // Membuat intent untuk berpindah ke Absensi Activity dan mengirim data
                     Intent i = new Intent(getApplicationContext(), Data_sales_grade.class);
                     i.putExtra("id", b);
                     i.putExtra("nama", c);
+                    i.putExtra("kelas", d);
                     startActivity(i); // Menjalankan activity Absensi
                 }
             });
