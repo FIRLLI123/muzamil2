@@ -494,6 +494,8 @@ private void list() {
     FormBody formBody = new FormBody.Builder()
             .add("tanggal", tanggal.getText().toString())
             .add("kelas", kelas.getText().toString())
+            .add("nis", nis.getText().toString())
+
             .build();
 
     executePostRequest(Config.host + "list_absen.php", formBody, response -> {
