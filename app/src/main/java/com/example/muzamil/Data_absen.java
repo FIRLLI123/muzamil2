@@ -49,7 +49,7 @@ import java.security.cert.CertificateException;
 
 public class Data_absen extends AppCompatActivity {
     ListView listtest1;
-    TextView id_siswa, nama_siswa, tanggal;
+    TextView id_siswa, nama_siswa, tanggal, tanggalbayangan;
     Button caritanggal;
     public static String LINK, idlist, tanggallist, jamlist, kecamatanlist, absenlist, keteranganlist, statuslist, pendinglist;
     ArrayList<HashMap<String, String>> aruskas = new ArrayList<HashMap<String, String>>();
@@ -69,6 +69,7 @@ public class Data_absen extends AppCompatActivity {
         id_siswa = (TextView) findViewById(R.id.id_siswa);
         nama_siswa = (TextView) findViewById(R.id.nama_siswa);
         tanggal = (TextView) findViewById(R.id.tanggal);
+        tanggalbayangan = (TextView) findViewById(R.id.tanggalbayangan);
 
         caritanggal = (Button) findViewById(R.id.caritanggal);
 
@@ -81,6 +82,7 @@ public class Data_absen extends AppCompatActivity {
 
         // Menampilkan tanggal saat ini pada TextView
         tanggal.setText(getCurrentDate());
+//        tanggalbayangan.setText(getCurrentDate());
 
         // Menangani klik pada button caritanggal
         caritanggal.setOnClickListener(new View.OnClickListener() {

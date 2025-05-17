@@ -77,7 +77,7 @@ import java.security.cert.CertificateException;
 import java.util.function.Consumer;
 
 public class Absensi extends AppCompatActivity implements View.OnClickListener {
-TextView nis, nama, profesi, jam, tanggal, kelas, id_siswa, nama_siswa, keterangan, mata_pelajaran;
+TextView nis, nama, profesi, jam, tanggal, kelas, id_siswa, nama_siswa, keterangan, mata_pelajaran, tanggalbayangan;
 
 TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
 
@@ -141,6 +141,7 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
         jam_masuk = (TextView) findViewById(R.id.jam_masuk);
         jam_telat = (TextView) findViewById(R.id.jam_telat);
         jam_berakhir = (TextView) findViewById(R.id.jam_berakhir);
+        tanggalbayangan = (TextView) findViewById(R.id.tanggalbayangan);
 
         // Inisialisasi tombol scan dan menambahkan listener klik
         buttonScan = (LinearLayout) findViewById(R.id.buttonScan);
@@ -148,6 +149,7 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
 
         // Mengatur tanggal dan jam saat ini ke TextView
         tanggal.setText(getCurrentDate());
+        tanggalbayangan.setText(getCurrentDate2());
         jam.setText(getCurrentClock());
         jam_bayangan.setText(getCurrentClock());
 
@@ -385,6 +387,14 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
         // Mendapatkan tanggal saat ini dalam format yyyy/MM/dd
         final Calendar c = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", new Locale("id", "ID"));
+        return dateFormat.format(c.getTime());
+    }
+
+
+    public String getCurrentDate2() {
+        // Mendapatkan tanggal saat ini dalam format yyyy/MM/dd
+        final Calendar c = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy", new Locale("id", "ID"));
         return dateFormat.format(c.getTime());
     }
 
