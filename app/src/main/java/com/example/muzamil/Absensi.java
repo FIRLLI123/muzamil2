@@ -23,6 +23,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 //import com.androidnetworking.AndroidNetworking;
 //import com.androidnetworking.common.Priority;
@@ -103,6 +104,8 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
 
     ListView listtest1;
     ArrayList<HashMap<String, String>> aruskas = new ArrayList<HashMap<String, String>>();
+
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -231,6 +234,18 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
                         return false; // Tidak menangani aksi lainnya
                 }
                 return true; // Mengindikasikan event telah ditangani
+            }
+        });
+
+        // Initialize SwipeRefreshLayout
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Call your list() method to refresh data
+                list();
+                // Stop the refresh animation when done
+                swipeRefreshLayout.setRefreshing(false);
             }
         });
 
@@ -465,7 +480,7 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
             String result = response.optString("response");
             if ("success".equals(result)) {
                 Toast.makeText(getApplicationContext(),
-                        "Absen Berhasil, Data Anda sedang diteruskan ke Manager Anda, untuk dilakukan verifikasi terlebih dahulu",
+                        "Absen Berhasil",
                         Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(getApplicationContext(),
@@ -497,6 +512,9 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
 
 //listview untuk tampil data berdasarkan tanggal dan kelas
 private void list() {
+    // Show refresh animation
+    swipeRefreshLayout.setRefreshing(true);
+    
     // Bersihkan data sebelum mengisi kembali
     aruskas.clear();
     listtest1.setAdapter(null);
@@ -534,10 +552,15 @@ private void list() {
                         Toast.LENGTH_LONG).show();
             }
         }
+        
+        // Stop refresh animation when data is loaded
+        swipeRefreshLayout.setRefreshing(false);
     }, error -> {
         Toast.makeText(getApplicationContext(),
                 "Gagal mengambil data: " + error.getMessage(),
                 Toast.LENGTH_LONG).show();
+        // Stop refresh animation on error
+        swipeRefreshLayout.setRefreshing(false);
     });
 }
 
