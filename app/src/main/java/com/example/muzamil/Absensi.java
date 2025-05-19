@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -451,7 +452,7 @@ TextView jam_masuk, jam_telat, jam_berakhir, jam_bayangan;
                 .add("mata_pelajaran", mata_pelajaran.getText().toString())
                 .build();
 
-        executePostRequest(Config.host + "inputabsen.php", formBody, response -> {
+        executePostRequest(com.example.muzamil.helper.Config.host + "inputabsen.php", formBody, response -> {
             String result = response.optString("response");
             if ("success".equals(result)) {
                 Toast.makeText(getApplicationContext(),
@@ -496,7 +497,7 @@ private void list() {
             .add("kelas", kelas.getText().toString())
             .build();
 
-    executePostRequest(Config.host + "list_absen.php", formBody, response -> {
+    executePostRequest(com.example.muzamil.helper.Config.host + "list_absen.php", formBody, response -> {
         JSONArray jsonArray = response.optJSONArray("result");
         if (jsonArray != null) {
             try {
@@ -607,7 +608,5 @@ private void list() {
 
         }
     }
-
-
 
 }

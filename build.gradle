@@ -5,7 +5,8 @@ buildscript {
         jcenter() // Opsional, hanya jika beberapa dependensi menggunakan ini
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.4" // Sesuaikan dengan versi plugin Gradle Anda
+        classpath 'com.android.tools.build:gradle:8.10.0'
+        // Sesuaikan dengan versi plugin Gradle Anda
     }
 }
 
