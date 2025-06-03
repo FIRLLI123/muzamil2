@@ -41,7 +41,7 @@ import java.io.IOException;
 
 public class Data_sales extends AppCompatActivity {
     ListView listdataoutlet1;
-    TextView id_siswa, kelas_siswa, nama_siswa;
+    TextView id_siswa, kelas_siswa, nama_siswa, mata_pelajaran;
     Spinner spinner_kelas;
     LinearLayout cari;
 
@@ -69,10 +69,18 @@ public class Data_sales extends AppCompatActivity {
         kelas_siswa = (TextView) findViewById(R.id.kelas_siswa);
         nama_siswa = (TextView) findViewById(R.id.nama_siswa);
         id_siswa = (TextView) findViewById(R.id.id_siswa);
+        mata_pelajaran = (TextView) findViewById(R.id.mata_pelajaran);
 
         // Inisialisasi variabel yang digunakan untuk menyimpan data
         idlist = "";
         namalist = "";
+
+
+        Intent i = getIntent();
+        String kiriman = i.getStringExtra("pelajaran");
+        mata_pelajaran.setText(kiriman);
+
+
 
         cari.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -192,12 +200,14 @@ public class Data_sales extends AppCompatActivity {
                     String b = id_siswa.getText().toString();
                     String c = nama_siswa.getText().toString();
                     String d = kelas_siswa.getText().toString();
+                    String e = mata_pelajaran.getText().toString();
 
                     // Membuat intent untuk berpindah ke Absensi Activity dan mengirim data
                     Intent i = new Intent(getApplicationContext(), Data_sales_grade.class);
                     i.putExtra("id", b);
                     i.putExtra("nama", c);
                     i.putExtra("kelas", d);
+                    i.putExtra("pelajaran", e);
                     startActivity(i); // Menjalankan activity Absensi
                 }
             });

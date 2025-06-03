@@ -2,130 +2,73 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="12dp">
 
+    <!-- Student Name -->
     <TextView
+        android:id="@+id/nama_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="8dp"/>
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
 
+    <!-- Class Teacher -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="15dp"
-        android:layout_gravity="center"
-        android:gravity="center">
-
-
-
-
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="left|center"
-            android:layout_marginBottom="1dp">
-
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Nama Siswa"
-                android:textColor="@color/black"
-                android:layout_marginLeft="15dp"
-                android:gravity="left"
-                android:textStyle="bold|italic"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:id="@+id/nama_list"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama"
-                android:textColor="@color/black"
-                android:layout_marginLeft="1dp"
-                android:gravity="center"
-                android:textStyle="bold|italic"
-                android:textSize="18dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="left|center"
-            android:layout_marginBottom="1dp">
-
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Nama Wali Kelas"
-                android:textColor="@color/black"
-                android:layout_marginLeft="15dp"
-                android:gravity="left"/>
-
-            <TextView
-                android:id="@+id/nama_walikelas_list"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama"
-                android:textColor="@color/black"
-                android:layout_marginLeft="1dp"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="left|center"
-            android:layout_marginBottom="1dp">
-
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Nama Wali Ortu"
-                android:textColor="@color/black"
-                android:layout_marginLeft="15dp"
-                android:gravity="left"/>
-
-            <TextView
-                android:id="@+id/nama_waliortu_list"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama"
-                android:textColor="@color/black"
-                android:layout_marginLeft="1dp"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-
-
-
-
+        android:orientation="horizontal"
+        android:layout_marginBottom="4dp">
 
         <TextView
-            android:id="@+id/id_siswa_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="kategori"
+            android:text="Wali Kelas: "
+            android:textColor="#757575"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/nama_walikelas_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
             android:textColor="@color/black"
-            android:layout_marginLeft="1dp"
-            android:gravity="center"
-            android:visibility="gone"/>
-
-
+            android:textSize="14sp"/>
     </LinearLayout>
 
+    <!-- Parent Guardian -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wali Ortu: "
+            android:textColor="#757575"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/nama_waliortu_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <!-- Hidden Student ID -->
+    <TextView
+        android:id="@+id/id_siswa_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kategori"
+        android:visibility="gone"/>
 </LinearLayout>
 
 

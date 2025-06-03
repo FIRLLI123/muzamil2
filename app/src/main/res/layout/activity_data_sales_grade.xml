@@ -8,7 +8,83 @@
     android:background="@color/merah"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Dari"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tanggal_dari"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background2"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Sampai"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tanggal_sampai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background2"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tombol Action -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_tampilkan"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Tampilkan Data"
+            android:textColor="@color/black"
+            android:background="@drawable/background2"
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
 
     <!--    Data Gone yang berfungsi untuk memanggil data view-->
 
@@ -401,6 +477,17 @@
                 android:layout_marginLeft="1dp"
                 android:textColor="@color/black"/>
 
+            <TextView
+                android:id="@+id/mata_pelajaran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pelajaran"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="1dp"
+                android:textColor="@color/black"/>
+
         </LinearLayout>
 
 
@@ -559,17 +646,20 @@
 
         <!--        Tampilan view dari database-->
 
-        <androidx.cardview.widget.CardView
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <ListView
                 android:id="@+id/listtest"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5.0sp"
+                android:padding="5dp" />
 
-        </androidx.cardview.widget.CardView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 

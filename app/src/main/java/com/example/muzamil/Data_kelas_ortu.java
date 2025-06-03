@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import okhttp3.*;
 import com.example.muzamil.helper.Config;
@@ -49,7 +50,7 @@ import java.security.cert.CertificateException;
 
 public class Data_kelas_ortu extends AppCompatActivity {
 
-    TextView idkelas, nis, profesi, nama, jadwal, jam_mulai, jam_telat, jam_berakhir, tanggal, jam, id_siswa, nama_siswa;
+    TextView idkelas,kelas, nis, profesi, nama, jadwal, jam_mulai, jam_telat, jam_berakhir, tanggal, jam, id_siswa, nama_siswa;
 
 
     Button kunjungi;
@@ -96,6 +97,7 @@ public class Data_kelas_ortu extends AppCompatActivity {
         blank_gambar = (LinearLayout) findViewById(R.id.blank_gambar);
 
         idkelas = (TextView) findViewById(R.id.idkelas);
+        kelas = (TextView) findViewById(R.id.kelas);
         nis = (TextView) findViewById(R.id.nis);
         nama = (TextView) findViewById(R.id.nama);
         profesi = (TextView) findViewById(R.id.profesi);
@@ -131,7 +133,7 @@ public class Data_kelas_ortu extends AppCompatActivity {
                 String b = nama.getText().toString();
                 String c = nis.getText().toString();
                 String d = profesi.getText().toString();
-                String e = jadwal.getText().toString();
+                String e = kelas.getText().toString();
 
                 String f = jam_mulai.getText().toString();
                 String g = jam_telat.getText().toString();
@@ -191,14 +193,83 @@ public class Data_kelas_ortu extends AppCompatActivity {
         id_siswa.setText(kiriman4);
         String kiriman5 = i.getStringExtra("nama_siswa");
         nama_siswa.setText(kiriman5);
+//        String kiriman6 = i.getStringExtra("kelas");
+//        kelas.setText(kiriman6);
 
 
         //prosesdasboard1();
 
-        list();
-
+        list_kelas();
     }
 
+    private void list_kelas() {
+        // Ambil ID siswa dari TextView
+        String studentId = id_siswa.getText().toString();
+        
+        // Tampilkan dialog loading
+        pDialog.setMessage("Memuat data...");
+        pDialog.show();
+
+        // Buat request body
+        RequestBody body = new FormBody.Builder()
+                .add("id_siswa", studentId)
+                .build();
+
+        // Buat request
+        Request request = new Request.Builder()
+                .url(Config.host + "get_kelas_siswa.php")
+                .post(body)
+                .build();
+
+        // Eksekusi request
+        OkHttpClient client = new OkHttpClient();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                runOnUiThread(() -> {
+                    pDialog.dismiss();
+                    Toast.makeText(context, "Gagal terhubung ke server", Toast.LENGTH_SHORT).show();
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        String responseBody = response.body().string();
+                        JSONObject jsonResponse = new JSONObject(responseBody);
+                        
+                        if (jsonResponse.getString("status").equals("success")) {
+                            JSONArray jsonArray = jsonResponse.getJSONArray("result");
+                            if (jsonArray.length() > 0) {
+                                JSONObject data = jsonArray.getJSONObject(0);
+                                
+                                // Update UI dengan data kelas
+                                runOnUiThread(() -> {
+                                    kelas.setText(data.optString("kelas"));
+                                    pDialog.dismiss();
+                                });
+                            }
+                        } else {
+                            // Tangani error
+                            String errorMessage = jsonResponse.optString("message", "Terjadi kesalahan");
+                            runOnUiThread(() -> {
+                                pDialog.dismiss();
+                                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
+                            });
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        runOnUiThread(() -> {
+                            pDialog.dismiss();
+                            Toast.makeText(context, "Gagal memproses data", Toast.LENGTH_SHORT).show();
+                        });
+                    }
+                }
+            }
+        });
+    }
 
     public String getCurrentDate() {
         final Calendar c = Calendar.getInstance();
@@ -223,14 +294,14 @@ public class Data_kelas_ortu extends AppCompatActivity {
 
         // Membuat body permintaan POST
         RequestBody body = new FormBody.Builder()
-                .add("nis", nis.getText().toString())
+                .add("kelas", kelas.getText().toString())
                 .add("tanggal", tanggal.getText().toString())
                 .add("jam", jam.getText().toString())
                 .build();
 
         // Membuat permintaan POST
         Request request = new Request.Builder()
-                .url(Config.host + "list_absen.php")
+                .url(Config.host + "data_kelas_ortu.php")
                 .post(body)
                 .build();
 

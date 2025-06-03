@@ -70,7 +70,7 @@ import java.security.cert.CertificateException;
 public class MenuAbsen extends AppCompatActivity {
 TextView nis, nama, profesi, id_siswa, nama_siswa;
 
-TextView masuk,telat,izinn,tidakmasuk, mata_pelajaran, selengkapnya, tanggal;
+TextView masuk,telat,izinn,tidakmasuk, mata_pelajaran, selengkapnya, tanggal, kelas;
 
 LinearLayout kehadiran, izin, data_absen, logout;
 
@@ -107,6 +107,7 @@ LinearLayout kehadiran, izin, data_absen, logout;
         id_siswa = (TextView) findViewById(R.id.id_siswa);
         nama_siswa = (TextView) findViewById(R.id.nama_siswa);
         mata_pelajaran = (TextView) findViewById(R.id.mata_pelajaran);
+        kelas = (TextView) findViewById(R.id.kelas);
 
 
         masuk = (TextView) findViewById(R.id.masuk);
@@ -182,6 +183,7 @@ LinearLayout kehadiran, izin, data_absen, logout;
                     String c = profesi.getText().toString();
                     String d = nama_siswa.getText().toString();
                     String e = id_siswa.getText().toString();
+//                    String f = kelas.getText().toString();
 
                     // Berpindah ke Data_kelas_ortu
                     Intent i = new Intent(getApplicationContext(), Data_kelas_ortu.class);
@@ -190,6 +192,7 @@ LinearLayout kehadiran, izin, data_absen, logout;
                     i.putExtra("profesi", "" + c + "");
                     i.putExtra("nama_siswa", "" + d + "");
                     i.putExtra("id_siswa", "" + e + "");
+//                    i.putExtra("kelas", "" + f + "");
 
                     startActivity(i);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -261,25 +264,34 @@ LinearLayout kehadiran, izin, data_absen, logout;
 
         selengkapnya.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                if (profesi.getText().toString().equals("BK") || profesi.getText().toString().equals("ORTU")) {
+                if (profesi.getText().toString().equals("BK")) {
                     String a = id_siswa.getText().toString();
                     String b = nama_siswa.getText().toString();
-
-                    Intent i = new Intent(getApplicationContext(), Data_sales.class);
-                    i.putExtra("id_siswa", "" + a + "");
-                    i.putExtra("nama_siswa", "" + b + "");
-
-                    startActivity(i);
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                } else if (profesi.getText().toString().equals("BK")) {
-                    String a = id_siswa.getText().toString();
-                    String b = nama_siswa.getText().toString();
+                    String c = mata_pelajaran.getText().toString();
 
                     // Berpindah ke Data_absen
                     Intent i = new Intent(getApplicationContext(), Data_sales.class);
                     i.putExtra("id_siswa", "" + a + "");
                     i.putExtra("nama_siswa", "" + b + "");
-                } else if (profesi.getText().toString().equals("null")) {
+                    i.putExtra("pelajaran", "" + c + "");
+                    startActivity(i);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                } else if (profesi.getText().toString().equals("ORTU")) {
+                    String a = id_siswa.getText().toString();
+                    String b = nama_siswa.getText().toString();
+                    String c = mata_pelajaran.getText().toString();
+                    String d = kelas.getText().toString();
+
+                    // Berpindah ke Data_absen
+                    Intent i = new Intent(getApplicationContext(), Data_sales_grade.class);
+                    i.putExtra("id", "" + a + "");
+                    i.putExtra("nama", "" + b + "");
+                    i.putExtra("pelajaran", "" + c + "");
+                    i.putExtra("kelas", "" + d + "");
+                    startActivity(i);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+                }else if (profesi.getText().toString().equals("null")) {
                     // Tampilkan pesan jika koneksi lemah
                     Toast.makeText(getApplicationContext(), "KONEKSI LEMAH TUNGGU SEBENTAR", Toast.LENGTH_LONG).show();
                 } else {
@@ -322,6 +334,7 @@ LinearLayout kehadiran, izin, data_absen, logout;
         absenhadir(); // Memuat data kehadiran
         list(); // Memuat data lainnya
 absentelat();
+        list_kelas();
 
 
 
@@ -694,6 +707,77 @@ absentelat();
                         runOnUiThread(() -> Adapter());
                     } catch (JSONException e) {
                         e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+
+
+    private void list_kelas() {
+        // Ambil ID siswa dari TextView
+        String studentId = id_siswa.getText().toString();
+
+        // Tampilkan dialog loading
+        pDialog.setMessage("Memuat data...");
+        pDialog.show();
+
+        // Buat request body
+        RequestBody body = new FormBody.Builder()
+                .add("id_siswa", studentId)
+                .build();
+
+        // Buat request
+        Request request = new Request.Builder()
+                .url(Config.host + "get_kelas_siswa.php")
+                .post(body)
+                .build();
+
+        // Eksekusi request
+        OkHttpClient client = new OkHttpClient();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                runOnUiThread(() -> {
+                    pDialog.dismiss();
+                    Toast.makeText(context, "Gagal terhubung ke server", Toast.LENGTH_SHORT).show();
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        String responseBody = response.body().string();
+                        JSONObject jsonResponse = new JSONObject(responseBody);
+
+                        if (jsonResponse.getString("status").equals("success")) {
+                            JSONArray jsonArray = jsonResponse.getJSONArray("result");
+                            if (jsonArray.length() > 0) {
+                                JSONObject data = jsonArray.getJSONObject(0);
+
+                                // Update UI dengan data kelas
+                                runOnUiThread(() -> {
+                                    kelas.setText(data.optString("kelas"));
+                                    pDialog.dismiss();
+                                });
+                            }
+                        } else {
+                            // Tangani error
+                            String errorMessage = jsonResponse.optString("message", "Terjadi kesalahan");
+                            runOnUiThread(() -> {
+                                pDialog.dismiss();
+                                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
+                            });
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        runOnUiThread(() -> {
+                            pDialog.dismiss();
+                            Toast.makeText(context, "Gagal memproses data", Toast.LENGTH_SHORT).show();
+                        });
                     }
                 }
             }

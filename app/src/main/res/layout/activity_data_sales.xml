@@ -389,6 +389,17 @@
                 android:layout_marginLeft="1dp"
                 android:textColor="@color/black"/>
 
+            <TextView
+                android:id="@+id/mata_pelajaran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama_siswa"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="1dp"
+                android:textColor="@color/black"/>
+
 
             <TextView
                 android:id="@+id/kelas_siswa"
